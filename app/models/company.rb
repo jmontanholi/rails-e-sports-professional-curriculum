@@ -1,6 +1,4 @@
 class Company < ApplicationRecord
-    has_many :photos, dependent: :destroy
-    has_many :videos, dependent: :destroy
     has_many :favorite_gamers
     has_many :users, through: :favorite_gamers
   

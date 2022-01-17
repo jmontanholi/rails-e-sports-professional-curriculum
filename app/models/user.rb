@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-    has_many :photo, dependent: :destroy
-    has_many :video, dependent: :destroy
+    has_many :photos, dependent: :destroy
+    has_many :videos, dependent: :destroy
     has_many :favorite_gamers
     has_many :companies, through: :favorite_gamers
 
