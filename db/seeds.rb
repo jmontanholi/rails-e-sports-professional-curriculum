@@ -7,12 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 users = [
   {
-  name: 'João Vítor Montanholi Nunes', 
-  age: 21, 
-  location: 'São Paulo, Brazil', 
-  email: 'jonunes9326@hotmail.com.br', 
-  password:'123456aA', 
-  description:'I am a pro gamer', 
-  user_type:'Admin'
+    name: 'João Vítor Montanholi Nunes',
+    age: 21,
+    location: 'São Paulo, Brazil',
+    email: 'jonunes9326@hotmail.com.br',
+    password: '123456aA',
+    description: 'I am a pro gamer',
+    user_type: 'Admin'
   }
 ]
