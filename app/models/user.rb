@@ -11,6 +11,7 @@ class User < ApplicationRecord
             :password,
             :user_type,
             presence: true
+  validates :email, uniqueness: true
   validates :name, length: { in: 6..40 }
   validates :age, numericality: { only_integer: true }
   validates :email, length: { in: 13..30 }
