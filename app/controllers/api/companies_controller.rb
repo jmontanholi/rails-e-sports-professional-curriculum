@@ -7,7 +7,7 @@ class Api::CompaniesController < ApplicationController
           name: @companies.name,
           email: @companies.email,
           location: @companies.location,
-          favorite_gamers: @companies.favorite_gamers
+          favorite_gamers: @companies.users
         }
       },
             status: 200

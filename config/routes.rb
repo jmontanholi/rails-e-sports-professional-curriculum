@@ -10,5 +10,14 @@ Rails.application.routes.draw do
     post '/companies/sign_in', to: 'companies#signIn'
     post '/companies/sign_up', to: 'companies#signUp'
     delete '/companies/delete', to: 'companies#delete'
+
+    post '/favorite/create', to: 'favorite_gamers#create'
+    delete '/favorite/delete', to: 'favorite_gamers#delete'
+
+    post '/photo/create', to: 'photos#create'
+    delete '/photo/delete', to: 'photos#delete'
+
+    post '/video/create', to: 'videos#create'
+    delete '/video/delete', to: 'videos#delete'
   end
 end
