@@ -16,7 +16,7 @@ class Api::UsersController < ApplicationController
 
   def sign_in
     @user = User.find_by(email: params[:email])
-    if @user.password == params[:password]
+    if @user && @user.password == params[:password]
       render json: {
         user: {
           name: @user.name,
@@ -29,7 +29,7 @@ class Api::UsersController < ApplicationController
         }
       },
              status: 200
-    elsif @user.password != params[:password]
+    elsif @user && @user.password != params[:password]
       render json: {
         error: 'The email or the password is wrong'
       },
@@ -61,19 +61,19 @@ class Api::UsersController < ApplicationController
       render json: {
         errors: @user.errors.full_messages
       },
-             status: 404
+             status: 422
     end
   end
 
   def delete
     @user = User.find_by(email: params[:email])
-    if @user.password == params[:password]
+    if @user && @user.password == params[:password]
       @user.delete
       render json: {
         success: 'The user was successfully deleted'
       },
              status: 200
-    elsif @user.password != params[:password]
+    elsif @user && @user.password != params[:password]
       render json: {
         error: 'The email or the password is wrong'
       },
