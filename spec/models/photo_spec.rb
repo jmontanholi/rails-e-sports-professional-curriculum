@@ -17,12 +17,12 @@ RSpec.describe Photo, type: :model do
     )
   end
 
-  it 'Expects photo to be created correctly' do    
+  it 'Expects photo to be created correctly' do
     expect(@photo).to be_valid
   end
 
-  it 'Expects photo to be invalid due to length of photo_type' do  
-    @photo.photo_type = 'lolololo'  
+  it 'Expects photo to be invalid due to length of photo_type' do
+    @photo.photo_type = 'lolololo'
     expect(@photo).to be_invalid
   end
 end

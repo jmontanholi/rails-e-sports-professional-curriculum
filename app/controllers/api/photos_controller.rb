@@ -14,12 +14,12 @@ class Api::PhotosController < ApplicationController
           videos: @user.videos
         }
       },
-            status: 200
+             status: 200
     else
       render json: {
         error: @photo.errors.full_messages
       },
-            status: 422
+             status: 422
     end
   end
 
@@ -30,16 +30,16 @@ class Api::PhotosController < ApplicationController
       render json: {
         success: 'The photo was deleted successfully'
       },
-            status: 200
+             status: 200
     else
       render json: {
         error: 'It was not possible to delete this photo at the time'
       },
-            status: 422
+             status: 422
     end
   end
 
-  private 
+  private
 
   def photo_params
     params.permit(:link, :user_id, :photo_type)

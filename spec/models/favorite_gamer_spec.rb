@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.describe FavoriteGamer, type: :model do
   before(:each) do
     @company = Company.create(
-      name: 'Company',      
+      name: 'Company',
       location: 'Brazil',
       email: 'test@gmail.com',
-      password: '123456',      
+      password: '123456'
     )
     @user = User.create(
       name: 'Guilherme',
@@ -20,9 +20,9 @@ RSpec.describe FavoriteGamer, type: :model do
       user_id: @user.id,
       company_id: @company.id
     )
-  end 
+  end
 
-  it 'Expects favorite gamer to be created correctly' do    
+  it 'Expects favorite gamer to be created correctly' do
     expect(@favorite).to be_valid
   end
 end

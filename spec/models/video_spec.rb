@@ -17,12 +17,12 @@ RSpec.describe Video, type: :model do
     )
   end
 
-  it 'Expects video to be created correctly' do    
+  it 'Expects video to be created correctly' do
     expect(@video).to be_valid
   end
 
-  it 'Expects video to be invalid due to length of video_type' do  
-    @video.video_type = 'lolololo'  
+  it 'Expects video to be invalid due to length of video_type' do
+    @video.video_type = 'lolololo'
     expect(@video).to be_invalid
   end
 end

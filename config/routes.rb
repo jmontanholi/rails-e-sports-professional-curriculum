@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   mount Rswag::Api::Engine => '/api-docs'
   namespace :api, defaults: { format: 'json' } do
     get '/users', to: 'users#index'
-    post '/users/sign_in', to: 'users#signIn'
-    post '/users/sign_up', to: 'users#signUp'
+    post '/users/sign_in', to: 'users#sign_in'
+    post '/users/sign_up', to: 'users#sign_up'
     delete '/users/delete', to: 'users#delete'
 
-    post '/companies/sign_in', to: 'companies#signIn'
-    post '/companies/sign_up', to: 'companies#signUp'
+    post '/companies/sign_in', to: 'companies#sign_in'
+    post '/companies/sign_up', to: 'companies#sign_up'
     delete '/companies/delete', to: 'companies#delete'
 
     post '/favorite/create', to: 'favorite_gamers#create'

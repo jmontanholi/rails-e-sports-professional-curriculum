@@ -12,12 +12,12 @@ class Api::FavoriteGamersController < ApplicationController
           favorite_gamers: @company.users
         }
       },
-            status: 200
+             status: 200
     else
       render json: {
         error: @favorite.errors.full_messages
       },
-            status: 422
+             status: 422
     end
   end
 
@@ -28,12 +28,12 @@ class Api::FavoriteGamersController < ApplicationController
       render json: {
         success: 'The gamer was unfavorited successfully'
       },
-            status: 200
+             status: 200
     else
       render json: {
         error: 'It was not possible to unfavorite this gamer at the time'
       },
-            status: 422
+             status: 422
     end
   end
 

@@ -1,7 +1,7 @@
 class Api::CompaniesController < ApplicationController
-  def signIn
+  def sign_in
     @companies = Company.find_by(email: params[:email])
-    if @companies.password === params[:password]
+    if @companies && @companies.password == params[:password]
       render json: {
         company: {
           name: @companies.name,
@@ -10,21 +10,21 @@ class Api::CompaniesController < ApplicationController
           favorite_gamers: @companies.users
         }
       },
-            status: 200
-    elsif @companies.password != params[:password]
+             status: 200
+    elsif @companies && @companies.password != params[:password]
       render json: {
         error: 'The email or the password is wrong'
       },
-            status: 422
+             status: 422
     else
       render json: {
-        error: 'No user was found with that email'    
+        error: 'No user was found with that email'
       },
-            status: 404
+             status: 404
     end
   end
 
-  def signUp
+  def sign_up
     @companies = Company.new(company_params)
     if @companies.save
       render json: {
@@ -35,33 +35,33 @@ class Api::CompaniesController < ApplicationController
           favorite_gamers: @companies.favorite_gamers
         }
       },
-            status: 200
+             status: 200
     else
       render json: {
-        errors: @companies.errors.full_messages    
+        errors: @companies.errors.full_messages
       },
-            status: 404
+             status: 422
     end
   end
 
   def delete
-    @companies = Company.new(company_params)
-    if @companies.password === params[:password]
+    @companies = Company.find_by(email: params[:email])
+    if @companies && @companies.password == params[:password]
       @companies.delete
       render json: {
-        success: 'The user was successfully deleted'
+        success: 'The company was successfully deleted'
       },
-            status: 200
-    elsif @companies.password != params[:password]
+             status: 200
+    elsif @companies && @companies.password != params[:password]
       render json: {
         error: 'The email or the password is wrong'
       },
-            status: 422
+             status: 422
     else
       render json: {
-        error: 'No user was found with that email'    
+        error: 'No company was found with that email'
       },
-            status: 404
+             status: 404
     end
   end
 

@@ -5,18 +5,18 @@ class Api::UsersController < ApplicationController
       render json: {
         users: @users
       },
-            status: 200
+             status: 200
     else
       render json: {
         error: 'There are no users in the system'
       },
-            status: 404
+             status: 404
     end
   end
 
-  def signIn
+  def sign_in
     @user = User.find_by(email: params[:email])
-    if @user.password === params[:password]
+    if @user.password == params[:password]
       render json: {
         user: {
           name: @user.name,
@@ -28,21 +28,21 @@ class Api::UsersController < ApplicationController
           videos: @user.videos
         }
       },
-            status: 200
+             status: 200
     elsif @user.password != params[:password]
       render json: {
         error: 'The email or the password is wrong'
       },
-            status: 422
+             status: 422
     else
       render json: {
-        error: 'No user was found with that email'    
+        error: 'No user was found with that email'
       },
-            status: 404
+             status: 404
     end
   end
 
-  def signUp
+  def sign_up
     @user = User.new(user_params)
     if @user.save
       render json: {
@@ -56,33 +56,33 @@ class Api::UsersController < ApplicationController
           videos: @user.videos
         }
       },
-            status: 200
+             status: 200
     else
       render json: {
-        errors: @user.errors.full_messages    
+        errors: @user.errors.full_messages
       },
-            status: 404
+             status: 404
     end
   end
 
   def delete
     @user = User.find_by(email: params[:email])
-    if @user.password === params[:password]
+    if @user.password == params[:password]
       @user.delete
       render json: {
         success: 'The user was successfully deleted'
       },
-            status: 200
+             status: 200
     elsif @user.password != params[:password]
       render json: {
         error: 'The email or the password is wrong'
       },
-            status: 422
+             status: 422
     else
       render json: {
-        error: 'No user was found with that email'    
+        error: 'No user was found with that email'
       },
-            status: 404
+             status: 404
     end
   end
 
