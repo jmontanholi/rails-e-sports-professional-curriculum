@@ -5,6 +5,6 @@ class Company < ApplicationRecord
   validates :email, uniqueness: true
   validates :name, :email, :password, :location, presence: true
   validates :name, length: { in: 5..40 }
-  validates :email, length: { in: 13..30 }
+  validates :email, length: { in: 9..30 }
   validates :password, length: { in: 4..12 }
 end
