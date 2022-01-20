@@ -1,5 +1,12 @@
 class Api::FavoriteGamersController < ApplicationController
   def create
+    if !params[:user_id] || !params[:company_id]
+      render json: {
+        error: 'Please provide the proper params: user_id: integer and company_id: integer'
+      },
+             status: 422
+      return
+    end
     @favorite = FavoriteGamer.new(favorite_params)
     @company = Company.find(@favorite.company_id)
     if @favorite.save
@@ -22,6 +29,13 @@ class Api::FavoriteGamersController < ApplicationController
   end
 
   def delete
+    if !params[:id]
+      render json: {
+        error: 'Please provide the proper params: id: integer'
+      },
+             status: 422
+      return
+    end
     @favorite = FavoriteGamer.find(params[:id])
     if @favorite
       @favorite.delete
