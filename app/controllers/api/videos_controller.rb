@@ -1,5 +1,12 @@
 class Api::VideosController < ApplicationController
   def create
+    if !params[:user_id]
+      render json: {
+        error: 'Please provide a proper user_id'
+      },
+             status: 422
+      return
+    end
     @video = Video.new(video_params)
     @user = User.find(@video.user_id)
     if @video.save
@@ -24,6 +31,13 @@ class Api::VideosController < ApplicationController
   end
 
   def delete
+    if !params[:id]
+      render json: {
+        error: 'Please provide a proper id'
+      },
+             status: 422
+      return
+    end
     @video = Video.find(params[:id])
     if @video
       @video.delete

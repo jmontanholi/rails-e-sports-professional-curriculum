@@ -1,5 +1,12 @@
 class Api::PhotosController < ApplicationController
   def create
+    if !params[:user_id]
+      render json: {
+        error: 'Please provide a proper user_id'
+      },
+             status: 422
+      return
+    end
     @photo = Photo.new(photo_params)
     @user = User.find(@photo.user_id)
     if @photo.save
@@ -24,6 +31,13 @@ class Api::PhotosController < ApplicationController
   end
 
   def delete
+    if !params[:id]
+      render json: {
+        error: 'Please provide a proper id'
+      },
+             status: 422
+      return
+    end
     @photo = Photo.find(params[:id])
     if @photo
       @photo.delete
