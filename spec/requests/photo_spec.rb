@@ -58,7 +58,7 @@ RSpec.describe 'Photos', type: :request do
 
   path '/api/photo/delete' do
     delete 'User deletes photo' do
-      tags 'Favorite_gamer'
+      tags 'Photo'
       consumes 'application/json'
       parameter name: :photo, in: :body, schema: {
         type: :object,

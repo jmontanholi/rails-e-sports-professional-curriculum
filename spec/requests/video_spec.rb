@@ -58,7 +58,7 @@ RSpec.describe 'Videos', type: :request do
 
   path '/api/video/delete' do
     delete 'User deletes video' do
-      tags 'Favorite_gamer'
+      tags 'Video'
       consumes 'application/json'
       parameter name: :video, in: :body, schema: {
         type: :object,
