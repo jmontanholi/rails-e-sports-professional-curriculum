@@ -315,4 +315,4 @@ servers:
 - url: https://{defaultHost}
   variables:
     defaultHost:
-      default: https://stormy-meadow-63042.herokuapp.com
+      default: https://gamerportfolioapi.herokuapp.com
