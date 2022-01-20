@@ -29,7 +29,7 @@ class Api::FavoriteGamersController < ApplicationController
   end
 
   def delete
-    if !params[:id]
+    unless params[:id]
       render json: {
         error: 'Please provide the proper params: id: integer'
       },

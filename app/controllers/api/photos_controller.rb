@@ -1,6 +1,6 @@
 class Api::PhotosController < ApplicationController
   def create
-    if !params[:user_id]
+    unless params[:user_id]
       render json: {
         error: 'Please provide a proper user_id'
       },
@@ -31,7 +31,7 @@ class Api::PhotosController < ApplicationController
   end
 
   def delete
-    if !params[:id]
+    unless params[:id]
       render json: {
         error: 'Please provide a proper id'
       },

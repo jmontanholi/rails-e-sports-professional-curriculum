@@ -62,13 +62,13 @@ RSpec.describe 'FavoriteGamers', type: :request do
       parameter name: :favorite_gamer, in: :body, schema: {
         type: :object,
         properties: {
-          id: { type: :integer },
+          id: { type: :integer }
         },
         required: %w[id]
       }
 
       response '200', 'company unfavorited a gamer' do
-        let(:favorite_gamer) { {id: @favorite_gamer.id} }
+        let(:favorite_gamer) { { id: @favorite_gamer.id } }
         run_test!
       end
 

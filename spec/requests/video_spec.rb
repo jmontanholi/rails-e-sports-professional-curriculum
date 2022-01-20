@@ -47,10 +47,10 @@ RSpec.describe 'Videos', type: :request do
         run_test! do |response|
           data = JSON.parse(response.body)
           expect(data['error']).to eq([
-            "Link can't be blank", 
-            "Video type can't be blank", 
-            "Video type is too short (minimum is 2 characters)"
-          ])
+                                        "Link can't be blank",
+                                        "Video type can't be blank",
+                                        'Video type is too short (minimum is 2 characters)'
+                                      ])
         end
       end
     end
@@ -63,13 +63,13 @@ RSpec.describe 'Videos', type: :request do
       parameter name: :video, in: :body, schema: {
         type: :object,
         properties: {
-          id: { type: :integer },
+          id: { type: :integer }
         },
         required: %w[id]
       }
 
       response '200', 'User deletes video' do
-        let(:video) { {id: @video.id} }
+        let(:video) { { id: @video.id } }
         run_test!
       end
 
