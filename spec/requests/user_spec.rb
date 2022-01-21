@@ -12,6 +12,31 @@ RSpec.describe 'Users', type: :request do
       user_type: 'admin'
     )
   end
+  
+  path '/api/users' do
+    get 'User logs in' do
+      tags 'User'
+      consumes 'application/json'
+      parameter name: :user, in: :body, schema: {
+        type: :object,
+        properties: {
+          email: { type: :string },
+          password: { type: :string }
+        },
+        required: %w[email password]
+      }
+
+      response '200', 'user logged in' do
+        let(:user) do
+          {
+            email: 'test@gmail.com',
+            password: '123456'
+          }
+        end
+        run_test!
+      end
+    end
+  end
 
   path '/api/users/sign_in' do
     post 'User logs in' do
