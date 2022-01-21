@@ -41,7 +41,7 @@ users = [
     password: '123456aA',
     description: 'I am a pro gamer',
     user_type: 'Admin'
-  },
+  }
 ]
 
 User.create(users)
@@ -64,7 +64,7 @@ companies = [
     email: 'imgur@gmail.com',
     location: 'Silicon valley',
     password: '123456aA'
-  },
+  }
 ]
 
 Company.create(companies)
@@ -143,7 +143,7 @@ favorite_gamers = [
   {
     user_id: 4,
     company_id: 3
-  },
+  }
 ]
 
 FavoriteGamer.create(favorite_gamers)

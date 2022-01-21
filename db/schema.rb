@@ -10,57 +10,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_14_224922) do
-
+ActiveRecord::Schema.define(version: 20_220_114_224_922) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "companies", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password"
-    t.text "location"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'companies', force: :cascade do |t|
+    t.string 'name'
+    t.string 'email'
+    t.string 'password'
+    t.text 'location'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "favorite_gamers", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "company_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["company_id"], name: "index_favorite_gamers_on_company_id"
-    t.index ["user_id"], name: "index_favorite_gamers_on_user_id"
+  create_table 'favorite_gamers', force: :cascade do |t|
+    t.bigint 'user_id'
+    t.bigint 'company_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['company_id'], name: 'index_favorite_gamers_on_company_id'
+    t.index ['user_id'], name: 'index_favorite_gamers_on_user_id'
   end
 
-  create_table "photos", force: :cascade do |t|
-    t.bigint "user_id"
-    t.text "link"
-    t.string "photo_type"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_photos_on_user_id"
+  create_table 'photos', force: :cascade do |t|
+    t.bigint 'user_id'
+    t.text 'link'
+    t.string 'photo_type'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['user_id'], name: 'index_photos_on_user_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.integer "age"
-    t.text "location"
-    t.string "email"
-    t.string "password"
-    t.text "description"
-    t.string "user_type"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'users', force: :cascade do |t|
+    t.string 'name'
+    t.integer 'age'
+    t.text 'location'
+    t.string 'email'
+    t.string 'password'
+    t.text 'description'
+    t.string 'user_type'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "videos", force: :cascade do |t|
-    t.bigint "user_id"
-    t.text "link"
-    t.string "video_type"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_videos_on_user_id"
+  create_table 'videos', force: :cascade do |t|
+    t.bigint 'user_id'
+    t.text 'link'
+    t.string 'video_type'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['user_id'], name: 'index_videos_on_user_id'
   end
-
 end

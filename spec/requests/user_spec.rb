@@ -12,7 +12,7 @@ RSpec.describe 'Users', type: :request do
       user_type: 'admin'
     )
   end
-  
+
   path '/api/users' do
     get 'User logs in' do
       tags 'User'
