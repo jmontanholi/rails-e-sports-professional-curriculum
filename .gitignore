@@ -6,7 +6,8 @@
 
 # Ignore bundler config.
 /.bundle
-
+.env
+Gemfile.lock
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*

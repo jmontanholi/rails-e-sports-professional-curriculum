@@ -1,0 +1,318 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/companies/sign_in":
+    post:
+      summary: Company logs in
+      tags:
+      - Company
+      parameters: []
+      responses:
+        '200':
+          description: company logged in
+        '404':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+  "/api/companies/sign_up":
+    post:
+      summary: Creates a new company
+      tags:
+      - Company
+      parameters: []
+      responses:
+        '200':
+          description: company logged in
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+                name:
+                  type: string
+                location:
+                  type: string
+              required:
+              - email
+              - password
+              - name
+              - location
+  "/api/companies/delete":
+    delete:
+      summary: Delete a company
+      tags:
+      - Company
+      parameters: []
+      responses:
+        '200':
+          description: company logged in
+        '422':
+          description: invalid request
+        '404':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+  "/api/favorite/create":
+    post:
+      summary: Company favorites a gamer
+      tags:
+      - Favorite_gamer
+      parameters: []
+      responses:
+        '200':
+          description: company favorited a gamer
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                company_id:
+                  type: integer
+              required:
+              - user_id
+              - company_id
+  "/api/favorite/delete":
+    delete:
+      summary: Company unfavorites a gamer
+      tags:
+      - Favorite_gamer
+      parameters: []
+      responses:
+        '200':
+          description: company unfavorited a gamer
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+              required:
+              - id
+  "/api/photo/create":
+    post:
+      summary: User creates photo
+      tags:
+      - Photo
+      parameters: []
+      responses:
+        '200':
+          description: User created a photo
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                link:
+                  type: string
+                user_id:
+                  type: integer
+                photo_type:
+                  type: string
+              required:
+              - user_id
+              - link
+              - photo_type
+  "/api/photo/delete":
+    delete:
+      summary: User deletes photo
+      tags:
+      - Photo
+      parameters: []
+      responses:
+        '200':
+          description: User deletes photo
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+              required:
+              - id
+  "/api/users/sign_in":
+    post:
+      summary: User logs in
+      tags:
+      - User
+      parameters: []
+      responses:
+        '200':
+          description: user logged in
+        '404':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+  "/api/users/sign_up":
+    post:
+      summary: Creates a new user
+      tags:
+      - User
+      parameters: []
+      responses:
+        '200':
+          description: user sign up
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+                name:
+                  type: string
+                location:
+                  type: string
+                user_type:
+                  type: string
+                age:
+                  type: integer
+              required:
+              - email
+              - password
+              - name
+              - location
+              - user_type
+              - age
+  "/api/users/delete":
+    delete:
+      summary: Delete a user
+      tags:
+      - User
+      parameters: []
+      responses:
+        '200':
+          description: user logged in
+        '422':
+          description: invalid request
+        '404':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+  "/api/video/create":
+    post:
+      summary: User creates video
+      tags:
+      - Video
+      parameters: []
+      responses:
+        '200':
+          description: User created a video
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                link:
+                  type: string
+                user_id:
+                  type: integer
+                video_type:
+                  type: string
+              required:
+              - user_id
+              - link
+              - video_type
+  "/api/video/delete":
+    delete:
+      summary: User deletes video
+      tags:
+      - Video
+      parameters: []
+      responses:
+        '200':
+          description: User deletes video
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+              required:
+              - id
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: https://gamerportfolioapi.herokuapp.com
