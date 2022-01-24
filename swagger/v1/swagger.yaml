@@ -177,6 +177,28 @@ paths:
                   type: integer
               required:
               - id
+  "/api/users":
+    get:
+      summary: User logs in
+      tags:
+      - User
+      parameters: []
+      responses:
+        '200':
+          description: user logged in
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
   "/api/users/sign_in":
     post:
       summary: User logs in
@@ -315,4 +337,4 @@ servers:
 - url: https://{defaultHost}
   variables:
     defaultHost:
-      default: https://gamerportfolioapi.herokuapp.com
+      default: https://https://gamerportfolioapi.herokuapp.com
