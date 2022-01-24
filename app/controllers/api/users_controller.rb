@@ -2,8 +2,23 @@ class Api::UsersController < ApplicationController
   def index
     @users = User.all
     if @users
+      final_data = []
+      @users.each do |user| 
+        final_data.push(
+          user: {
+            name: user.name,
+            email: user.email,
+            description: user.description,
+            age: user.age,
+            location: user.location,
+            photos: user.photos,
+            videos: user.videos,
+            user_type: user.user_type
+          }
+        )
+      end
       render json: {
-        users: @users
+        users: final_data
       },
              status: 200
     else
